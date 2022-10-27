@@ -14,12 +14,14 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.6.0",
+    "react-star-rating-component": "^1.4.1",
     "react-toast-notifications": "^2.5.1"
   },
   "devDependencies": {
     "@types/node": "18.11.7",
     "@types/react": "18.0.23",
     "@types/react-dom": "18.0.7",
+    "@types/react-star-rating-component": "^1.4.1",
     "autoprefixer": "^10.4.12",
     "eslint": "8.26.0",
     "eslint-config-next": "13.0.0",

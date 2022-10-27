@@ -5,7 +5,7 @@ const LandingNav = () => {
 	const router = useRouter();
 
 	return (
-		<nav className="sticky top-0 w-full flex-btw h-14 side-pad shadow-lg bg-[#2e7d32]">
+		<nav className="sticky top-0 w-full flex-btw h-14 side-pad shadow-lg bg-[#2e7d32] z-20">
 			<div
 				onClick={() => router.push("/")}
 				className="flexed pry-bg curp px-3.5 py-2 rounded-md text-white text-sm shadow-sm">

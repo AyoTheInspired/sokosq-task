@@ -25,7 +25,7 @@ const ProductsSection = () => {
 					<p className="text-lg text-white">No Products Found</p>
 				</div>
 			) : (
-				<section className="flex items-center justify-center flex-wrap bg-red-300">
+				<section className="flex items-start justify-center lg:justify-between flex-wrap">
 					{productsData?.map((product: ProductType) => (
 						<SingleProduct product={product} key={product.id} />
 					))}
