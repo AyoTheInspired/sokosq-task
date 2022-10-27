@@ -1,9 +1,24 @@
-import { useProducts, useToolkit, SingleProduct } from "../../../src";
+import {
+	useProducts,
+	useToolkit,
+	SingleProduct,
+	CategoryFilters,
+} from "../../../src";
 import { SiSpinrilla } from "react-icons/si";
 
 const ProductsSection = () => {
-	const { getAllProducts, productsLoading, productsData } = useProducts();
-	const { toastSuccess, useState, useEffect } = useToolkit();
+	const { getAllProducts, productsLoading, productsData, categories } =
+		useProducts();
+	const { useState, useEffect } = useToolkit();
+	const [selectedCategory, setSelectedCategory] = useState("all");
+
+	const filteredProducts = productsData.filter((product: ProductType) => {
+		if (selectedCategory === "all") {
+			return true;
+		} else {
+			return product.category === selectedCategory;
+		}
+	});
 
 	useEffect(() => {
 		getAllProducts();
@@ -20,15 +35,22 @@ const ProductsSection = () => {
 					<SiSpinrilla className="animate-spin text-3xl" />
 					<p className="mt-3 text-sm">Fetching Products...</p>
 				</div>
-			) : productsData?.length === 0 ? (
+			) : filteredProducts?.length === 0 ? (
 				<div className="flexed mt-14">
 					<p className="text-lg text-white">No Products Found</p>
 				</div>
 			) : (
-				<section className="flex items-start justify-center lg:justify-between flex-wrap">
-					{productsData?.map((product: ProductType) => (
-						<SingleProduct product={product} key={product.id} />
-					))}
+				<section className="flex flex-col">
+					<CategoryFilters
+						categories={categories}
+						selectedCategory={selectedCategory}
+						setSelectedCategory={setSelectedCategory}
+					/>
+					<div className="flex items-center justify-center lg:justify-between flex-wrap">
+						{filteredProducts?.map((product: ProductType) => (
+							<SingleProduct product={product} key={product.id} />
+						))}
+					</div>
 				</section>
 			)}
 		</main>
@@ -36,4 +58,3 @@ const ProductsSection = () => {
 };
 
 export default ProductsSection;
-// onClick={() => toastSuccess("here")}

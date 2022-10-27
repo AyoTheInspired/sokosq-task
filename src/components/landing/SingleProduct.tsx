@@ -1,4 +1,3 @@
-import React from "react";
 import { FaCartPlus } from "react-icons/fa";
 import { useToolkit } from "../../../src";
 import StarRatingComponent from "react-star-rating-component";
@@ -16,7 +15,7 @@ const SingleProduct = ({ product }: Props) => {
 					src={product.image}
 					alt={product.title}
 					className="object-covers"
-					width={100}
+					width={80}
 					height={120}
 				/>
 			</div>
@@ -43,7 +42,9 @@ const SingleProduct = ({ product }: Props) => {
 					/>
 				</div>
 			</div>
-			<div className="w-full flexed py-1.5 pry-bg text-white mt-2">Details</div>
+			<div className="w-full flexed py-1.5 pry-bg text-sm text-white mt-2">
+				Details
+			</div>
 		</div>
 	);
 };

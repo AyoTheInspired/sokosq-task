@@ -5,6 +5,7 @@ import { useToolkit } from "../../../src";
 const useProducts = () => {
 	const [productsLoading, setProductsLoading] = useState(false);
 	const [productsData, setProductsData] = useState<ProductType[]>([]);
+	const [categories, setCategories] = useState<any>([]);
 	const { toastError } = useToolkit();
 
 	const getAllProducts = async () => {
@@ -13,7 +14,13 @@ const useProducts = () => {
 		try {
 			const { data } = await axios.get("https://fakestoreapi.com/products");
 
-			console.log("data :>> ", data);
+			if (data?.length > 0) {
+				const unique = [
+					"all",
+					...new Set(data?.map((item: ProductType) => item.category)),
+				];
+				setCategories(unique);
+			}
 			setProductsData(data);
 			setProductsLoading(false);
 		} catch (error: any) {
@@ -23,7 +30,7 @@ const useProducts = () => {
 		}
 	};
 
-	return { getAllProducts, productsLoading, productsData };
+	return { getAllProducts, productsLoading, productsData, categories };
 };
 
 export default useProducts;
