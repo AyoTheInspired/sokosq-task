@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useToolkit } from "../../../src";
 
 const useProducts = () => {
-	const [productsLoading, setProductsLoading] = useState(false);
+	const [productsLoading, setProductsLoading] = useState(true);
 	const [productsData, setProductsData] = useState<ProductType[]>([]);
 	const [categories, setCategories] = useState<any>([]);
 	const { toastError } = useToolkit();
