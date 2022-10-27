@@ -1,7 +1,10 @@
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import { useToasts } from "react-toast-notifications";
 
 const useToolkit = () => {
 	const { addToast } = useToasts();
+	const router = useRouter();
 
 	function toastSuccess(message: string) {
 		return addToast(`${message}!`, {
@@ -20,7 +23,7 @@ const useToolkit = () => {
 			appearance: "info",
 		});
 	}
-	return { toastSuccess, toastError, toastInfo };
+	return { toastSuccess, toastError, toastInfo, useState, useEffect };
 };
 
 export default useToolkit;

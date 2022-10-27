@@ -1,19 +1,20 @@
 import axios from "axios";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useToolkit } from "../../../src";
 
 const useProducts = () => {
 	const [productsLoading, setProductsLoading] = useState(false);
-	const [productsData, setProductsData] = useState([]);
+	const [productsData, setProductsData] = useState<ProductType[]>([]);
 	const { toastError } = useToolkit();
 
 	const getAllProducts = async () => {
 		setProductsLoading(true);
 
 		try {
-			const res = await axios.get("https://fakestoreapi.com/products");
+			const { data } = await axios.get("https://fakestoreapi.com/products");
 
-			console.log("res :>> ", res);
+			console.log("data :>> ", data);
+			setProductsData(data);
 			setProductsLoading(false);
 		} catch (error: any) {
 			const msg = error?.response?.data?.message;

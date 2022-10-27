@@ -1,6 +1,8 @@
 // landing components
 
 export { default as LandingNav } from "./components/landing/LandingNav";
+export { default as ProductsSection } from "./components/landing/ProductsSection";
+export { default as SingleProduct } from "./components/landing/SingleProduct";
 export { default as HeadTag } from "./components/misc/HeadTag";
 
 // hooks
