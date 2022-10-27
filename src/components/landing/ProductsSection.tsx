@@ -3,8 +3,8 @@ import {
 	useToolkit,
 	SingleProduct,
 	CategoryFilters,
+	Spinner,
 } from "../../../src";
-import { SiSpinrilla } from "react-icons/si";
 
 const ProductsSection = () => {
 	const { getAllProducts, productsLoading, productsData, categories } =
@@ -31,10 +31,7 @@ const ProductsSection = () => {
 			}}
 			className="side-pad w-full mx-auto pry-bg pt-10">
 			{productsLoading ? (
-				<div className="flexed flex-col text-white pt-20">
-					<SiSpinrilla className="animate-spin text-3xl" />
-					<p className="mt-3 text-sm">Fetching Products...</p>
-				</div>
+				<Spinner text="Fetching Products" />
 			) : filteredProducts?.length === 0 ? (
 				<div className="flexed mt-14">
 					<p className="text-lg text-white">No Products Found</p>

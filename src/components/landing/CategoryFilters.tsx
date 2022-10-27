@@ -12,7 +12,7 @@ const CategoryFilters = ({
 	setSelectedCategory,
 }: Props) => {
 	return (
-		<div className="mb-14 w-full flex items-center justify-around">
+		<div className="mb-8 sticky top-14 z-40 pry-bg py-5 w-full flex items-center justify-around">
 			{categories?.map((item: string) => (
 				<button
 					key={item}

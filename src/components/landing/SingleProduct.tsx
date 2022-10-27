@@ -7,7 +7,8 @@ type Props = {
 };
 
 const SingleProduct = ({ product }: Props) => {
-	const { toastSuccess } = useToolkit();
+	const { toastSuccess, router } = useToolkit();
+
 	return (
 		<div className="w-3/4 md:w-[42%] lg:w-[23.5%] flexed flex-col bg-white mb-10 rounded-md hover:scale-[1.03] curp transition-all p-3 h-[300px]">
 			<div className="flexed p-3 h-full">
@@ -42,7 +43,9 @@ const SingleProduct = ({ product }: Props) => {
 					/>
 				</div>
 			</div>
-			<div className="w-full flexed py-1.5 pry-bg text-sm text-white mt-2">
+			<div
+				onClick={() => router.push(`/product/${product.id}`)}
+				className="w-full flexed py-1.5 pry-bg text-sm text-white mt-2">
 				Details
 			</div>
 		</div>

@@ -23,7 +23,7 @@ const useToolkit = () => {
 			appearance: "info",
 		});
 	}
-	return { toastSuccess, toastError, toastInfo, useState, useEffect };
+	return { toastSuccess, toastError, toastInfo, useState, useEffect, router };
 };
 
 export default useToolkit;
